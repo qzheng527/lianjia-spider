@@ -50,7 +50,6 @@ class LianjiaPipeline(object):
 
         shutil.copyfile(temp_file, result_summary)
         os.remove(temp_file)
-        os.remove(spider_result)
 
     def process_item(self, item, spider):
         row =[]
@@ -84,6 +83,8 @@ class LianjiaPipeline(object):
             self.update_summary()
         else:
             shutil.copyfile(spider_result, result_summary)
+
+        os.remove(spider_result)
 
 
 
